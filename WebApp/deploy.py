@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np 
 import joblib
 import os
-
+from PIL import Image
 
 def predict(data):
    path = os.path.dirname(__file__)
@@ -12,8 +12,7 @@ def predict(data):
    return lr.predict(data) 
 
 st.title("Dự đoán giá thuê phòng trọ sinh viên ở thành phố Hồ Chí Minh")
-path = os.path.dirname(__file__)
-st.write(path)
+
 st.write('---')
 st.header("Nhập các tham số sau")
 
@@ -63,3 +62,7 @@ if st.button('**Predict House Price**'):
 			st.text("Không thể dự đoán. Xem lại các thông số đã chọn.")
 		else:
 			st.text("Tiền thuê phòng trọ dự đoán là: {:,} VND / 1 tháng".format(np.round(cost[0], 6)*1000000))
+   
+
+st.header("Ngày update cuối cùng của data: 31/12/2022")
+st.header("Dữ liệu lấy từ website ancu.me")
