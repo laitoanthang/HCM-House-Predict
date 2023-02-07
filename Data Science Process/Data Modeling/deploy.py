@@ -49,19 +49,17 @@ listOfCity = ['Bình Chánh', 'Bình Thạnh', 'Bình Tân', 'Gò Vấp', 'Hóc 
 'Quận 9', 'Thủ Đức', 'Tân Bình', 'Tân Phú']
 listOfCity.sort()
 pos = np.zeros(len(listOfCity))
-pos
 pos[listOfCity.index(district)] = 1 
-pos
 X = np.concatenate([pos, isNew, isNearCenter, hasFurniture, isWholeHouse, liveTogether, isApartment, [area]])
 
-if st.button('**Predict House Price**'): 
-	# X = np.array([[area, district, isNew, hasFurniture, liveTogether]])
-	print(X)
-	if X[-1] < 5:
-		st.text("Diện tích phòng trọ phải lớn hơn 5m2.")
-	else:        
-		cost = predict([X])
-		if cost[0] < 0:
-			st.text("Không thể dự đoán. Xem lại các thông số đã chọn.")
-		else:
-			st.text("Tiền thuê phòng trọ dự đoán là: {:,} VND / 1 tháng".format(np.round(cost[0], 6)*1000000))
+# if st.button('**Predict House Price**'): 
+# 	# X = np.array([[area, district, isNew, hasFurniture, liveTogether]])
+# 	print(X)
+# 	if X[-1] < 5:
+# 		st.text("Diện tích phòng trọ phải lớn hơn 5m2.")
+# 	else:        
+# 		cost = predict([X])
+# 		if cost[0] < 0:
+# 			st.text("Không thể dự đoán. Xem lại các thông số đã chọn.")
+# 		else:
+# 			st.text("Tiền thuê phòng trọ dự đoán là: {:,} VND / 1 tháng".format(np.round(cost[0], 6)*1000000))
